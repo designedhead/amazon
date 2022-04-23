@@ -23,9 +23,16 @@ export default function CheckoutProductTile({
         <h3>{title}</h3>
         <p className="instock">In stock</p>
         <div className="prime_icon">
-          <Image src={Prime} height={14} width={40} />
+          <Image src={Prime} display="fill" objectFit="contain" />
         </div>
         <p className="description">{description}</p>
+        <div className="checkout_tile_options">
+          <select>
+            <option>Testing</option>
+          </select>
+          <div className="vertical_divider" />
+          <p className="checkout_tile_delete">Delete</p>
+        </div>
         {/* <button>Add to Basket</button> */}
       </div>
       <div className="checkout_farleft">
