@@ -249,9 +249,12 @@
 
 #checkout .right {
   width: 30%;
-  height: 130px;
+ 
+}
+#checkout .right_container {
+  height: auto;
   background-color: white;
-  padding: 20px;
+  padding: 18px;
 }
 .right_price {
   display: flex;
@@ -286,7 +289,7 @@
     rgba(255, 207, 0, 1) 100%
   );
   border: none;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 600;
   cursor: pointer;
 }
@@ -377,4 +380,14 @@ main {
 .checkout_tile_delete {
   color: #007185;
   font-size: 14px;
+  cursor: pointer;
+}
+.checkout_amount {
+  padding: 6px;
+  border-radius: 6px;
+  background-color: #f4f4f4;
+  border: solid 1px #cdcdcd;
+}
+.checkout_amount:focus {
+  outline: solid 1px #F29219;
 }

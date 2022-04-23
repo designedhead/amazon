@@ -30,12 +30,13 @@ function Checkout() {
           ))}
         </div>
         <div className="right">
-          <div className="right_price">
-            <h2>Subtotal ({items.length} item):</h2>
-            <h3>£13.99</h3>
+          <div className="right_container">
+            <div className="right_price">
+              <h2>Subtotal ({items.length} item):</h2>
+              <h3>£13.99</h3>
+            </div>
+            <button>Proceed to Checkout</button>
           </div>
-
-          <button>Proceed to Checkout</button>
         </div>
       </main>
     </section>

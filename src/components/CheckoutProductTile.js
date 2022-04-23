@@ -1,10 +1,8 @@
 import Image from "next/image";
 import Prime from "../../public/img/prime.png";
-import { StarIcon } from "@heroicons/react/solid";
 import Currency from "react-currency-formatter";
 import { useDispatch } from "react-redux";
-import { addToBasket } from "../slices/basketSlice";
-
+import { removeFromBasket } from "../slices/basketSlice";
 export default function CheckoutProductTile({
   id,
   title,
@@ -14,6 +12,11 @@ export default function CheckoutProductTile({
   rating,
   category,
 }) {
+  const dispatch = useDispatch();
+  const removeItemFromBasket = () => {
+    dispatch(removeFromBasket({ id }));
+  };
+
   return (
     <div className="checkout_tile" id="checkout_tile">
       <div className="checkout_left">
@@ -27,11 +30,13 @@ export default function CheckoutProductTile({
         </div>
         <p className="description">{description}</p>
         <div className="checkout_tile_options">
-          <select>
+          <select className="checkout_amount">
             <option>Testing</option>
           </select>
           <div className="vertical_divider" />
-          <p className="checkout_tile_delete">Delete</p>
+          <p onClick={removeItemFromBasket} className="checkout_tile_delete">
+            Delete
+          </p>
         </div>
         {/* <button>Add to Basket</button> */}
       </div>
