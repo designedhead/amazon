@@ -32,7 +32,7 @@ export default function Nav() {
               {session ? `Hello, ${session.user.name}` : "Sign-in"}
             </p>
             <div className="nav_section_bottom">
-              <p className="title">Account &amp; Listing</p>
+              <p className="title">{session ? "Log-out" : "Account & Listing"}</p>
               <ChevronDownIcon className="nav_chevron" />
             </div>
           </div>
