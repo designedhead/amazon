@@ -16,11 +16,7 @@ export default function Home({ products }) {
             &times;
           </span>
           <h1>Welcome to my Project</h1>
-          <a
-            className="modal_git"
-            href="https://github.com/designedhead"
-            target="_blank"
-          >
+          <a className="modal_git" href="https://github.com/designedhead">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"

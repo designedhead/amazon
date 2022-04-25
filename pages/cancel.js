@@ -11,7 +11,7 @@ function Cancel() {
         <div className="container">
           <div className="top_container">
             <ExclamationCircleIcon className="icon" />
-            <h1>Ups, something wen't wrong 😔</h1>
+            <h1>{"Ups, something wen't wrong 😔"}</h1>
           </div>
           <p>
             {
