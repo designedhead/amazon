@@ -737,3 +737,8 @@ width: 300px;
   font-weight: 600;
   color: #475bda;
 }
+.modal_git{
+  display: flex;
+  gap: 10px;
+  cursor: pointer;
+}
