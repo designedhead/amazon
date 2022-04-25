@@ -22,15 +22,12 @@ function Checkout() {
   const createCheckoutSession = async () => {
     // Backend call for stripe
     const stripe = await stripePromise;
-    const checkoutSession = await axios.post(
-      "https://amazon-opal-one.vercel.app/api/create-checkout-session",
-      {
-        items: items,
-        email: session.user.email,
-        name: session.user.name,
-      }
-    );
-
+    const checkoutSession = await axios.post("/api/create-checkout-session", {
+      items: items,
+      email: session.user.email,
+      name: session.user.name,
+    });
+    
     //Redirect user/customer to Stripe
     const result = await stripe.redirectToCheckout({
       sessionId: checkoutSession.data.id,
