@@ -31,7 +31,7 @@ export default function CheckoutProductTile({
         <p className="description">{description}</p>
         <div className="checkout_tile_options">
           <select className="checkout_amount">
-            <option>Testing</option>
+            <option>1</option>
           </select>
           <div className="vertical_divider" />
           <p onClick={removeItemFromBasket} className="checkout_tile_delete">

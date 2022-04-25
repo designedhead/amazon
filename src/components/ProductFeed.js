@@ -7,6 +7,8 @@ export default function ProductFeed({ products }) {
       {products.slice(0, 4).map((product, i) => (
         <div key={i}>
           <ProductTile
+            key={`${product.id}_${i}`}
+            id={product.id}
             title={product.title}
             description={product.description}
             image={product.image}
@@ -21,7 +23,7 @@ export default function ProductFeed({ products }) {
       </div>
       {products.slice(4, 20).map((product, i) => (
         <ProductTile
-          key={i}
+          key={`${product.id}_${i}`}
           id={product.id}
           title={product.title}
           description={product.description}

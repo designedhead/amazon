@@ -1,11 +1,44 @@
-import { useSelector } from "react-redux";
+import { signIn, useSession } from "next-auth/react";
+import { useDispatch, useSelector } from "react-redux";
 import CategoryNav from "../src/components/CategoryNav";
 import CheckoutProductTile from "../src/components/CheckoutProductTile";
 import Nav from "../src/components/Nav";
-import { selectItems } from "../src/slices/basketSlice";
+import {
+  selectItems,
+  selectTotal,
+  purgeBasket,
+} from "../src/slices/basketSlice";
+import Currency from "react-currency-formatter";
+import { loadStripe } from "@stripe/stripe-js";
+import axios from "axios";
+
+const stripePromise = loadStripe(process.env.stripe_public_key);
 
 function Checkout() {
+  const { data: session } = useSession();
   const items = useSelector(selectItems);
+  const total = useSelector(selectTotal);
+
+  const createCheckoutSession = async () => {
+    // Backend call for stripe
+    const stripe = await stripePromise;
+    const checkoutSession = await axios.post("/api/create-checkout-session", {
+      items: items,
+      email: session.user.email,
+      name: session.user.name,
+    });
+
+    //Redirect user/customer to Stripe
+    const result = await stripe.redirectToCheckout({
+      sessionId: checkoutSession.data.id,
+    });
+
+    if (result.error) alert(result.error.message);
+  };
+  const dispatch = useDispatch();
+  const clearBasket = () => {
+    dispatch(purgeBasket());
+  };
 
   return (
     <section id="checkout">
@@ -33,9 +66,26 @@ function Checkout() {
           <div className="right_container">
             <div className="right_price">
               <h2>Subtotal ({items.length} item):</h2>
-              <h3>£13.99</h3>
+              <h3>
+                <Currency quantity={total} currency="GBP" />
+              </h3>
             </div>
-            <button>Proceed to Checkout</button>
+            {session ? (
+              <button
+                onClick={createCheckoutSession}
+                role="link"
+                className="checkout_bt"
+              >
+                Proceed to Checkout
+              </button>
+            ) : (
+              <button className="signin_bt" onClick={signIn}>
+                Sign in to Checkout
+              </button>
+            )}
+            <button className="signin_bt" onClick={clearBasket}>
+              Clear Cart
+            </button>
           </div>
         </div>
       </main>

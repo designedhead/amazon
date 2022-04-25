@@ -36,7 +36,7 @@ export default function Nav() {
               <ChevronDownIcon className="nav_chevron" />
             </div>
           </div>
-          <div className="nav_section">
+          <div className="nav_section" onClick={() => router.push("/orders")}>
             <p className="subtitle">Returns</p>
             <div className="nav_section_bottom">
               <p className="title">&amp; Orders</p>

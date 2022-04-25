@@ -11,15 +11,17 @@ export const basketSlice = createSlice({
     addToBasket: (state, action) => {
       state.items = [...state.items, action.payload];
     },
+    purgeBasket: (state, action) => {
+      state.items = [];
+    },
     removeFromBasket: (state, action) => {
       const index = state.items.findIndex(
         (basketItem) => basketItem.id === action.payload.id
       );
-      console.log('i',index,state, action)
       let newBasket = [...state.items];
 
       if (index >= 0) {
-        newBasket.slice(index, 1);
+        newBasket.splice(index, 1);
       } else {
         console.warn(
           `cant remove item from basket (id: ${action.payload.id}) as it doesn't exist.`
@@ -30,8 +32,11 @@ export const basketSlice = createSlice({
   },
 });
 
-export const { addToBasket, removeFromBasket } = basketSlice.actions;
+export const { addToBasket, removeFromBasket, purgeBasket } =
+  basketSlice.actions;
 
 export const selectItems = (state) => state.basket.items;
+export const selectTotal = (state) =>
+  state.basket.items.reduce((total, item) => total + item.price, 0);
 
 export default basketSlice.reducer;
