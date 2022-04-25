@@ -5,14 +5,12 @@ import { useDispatch } from "react-redux";
 import { purgeBasket } from "../src/slices/basketSlice";
 import { useEffect } from "react";
 
-function success() {
+function Success() {
   const router = useRouter();
-
   const dispatch = useDispatch();
-  
-  useEffect(()=>{
+  useEffect(() => {
     dispatch(purgeBasket());
-  },[])
+  }, []);
   return (
     <div>
       <Nav />
@@ -23,9 +21,9 @@ function success() {
             <h1>Thank you, your order has been confirmed</h1>
           </div>
           <p>
-            Thank you for shopping with us. We'll send a confirmation once your
-            items have been shipped, if you would like to check the status of
-            your order(s) please press the link bellow.
+            {
+              "Thank you for shopping with us. Well send a confirmation once your items have been shipped, if you would like to check the status of your order(s) please press the link bellow."
+            }
           </p>
           <button onClick={() => router.push("/orders")}>
             Go to my Orders
@@ -36,4 +34,4 @@ function success() {
   );
 }
 
-export default success;
+export default Success;

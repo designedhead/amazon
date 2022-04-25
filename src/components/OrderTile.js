@@ -41,8 +41,8 @@ export default function OrderTile({
         </div>
       </div>
       <div className="order_content">
-        {images.map((image) => (
-          <img src={image} alt="" />
+        {images.map((image, i) => (
+          <img key={i} src={image} alt="" />
         ))}
       </div>
     </div>

@@ -10,16 +10,16 @@ export default function Home({ products }) {
 
   return (
     <div>
-      <div id="myModal" class={modal ? "modal" : "modal_hidden"}>
-        <div class="modal-content">
-          <span class="close" onClick={() => setModal(false)}>
+      <div id="myModal" className={modal ? "modal" : "modal_hidden"}>
+        <div className="modal-content">
+          <span className="close" onClick={() => setModal(false)}>
             &times;
           </span>
           <h1>Welcome to my Project</h1>
           <h2 href="https://github.com/designedhead" target="_blank">
             Rafael Mendes - Git
           </h2>
-          <p>In this skill assessment project you'll be able to:</p>
+          <p>{"In this skill assessment project you'll be able to:"}</p>
           <lu>
             <li>View Mapped items from FakeStore API</li>
             <li>
@@ -28,9 +28,16 @@ export default function Home({ products }) {
             <li>
               Add them to cart using <strong>Redux</strong>
             </li>
-            <li><strong>Persist</strong> Redux info after refreshing the page</li>
-            <li>Visit Basket and checkout using <strong>Stripe.js</strong></li>
-            <li>On Success we store your order info with <strong>Firebase/Firestore</strong></li>
+            <li>
+              <strong>Persist</strong> Redux info after refreshing the page
+            </li>
+            <li>
+              Visit Basket and checkout using <strong>Stripe.js</strong>
+            </li>
+            <li>
+              On Success we store your order info with{" "}
+              <strong>Firebase/Firestore</strong>
+            </li>
             <li>Go to Order page and view previous orders</li>
           </lu>
         </div>
