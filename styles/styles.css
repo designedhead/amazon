@@ -334,6 +334,18 @@
   font-weight: 600;
   cursor: pointer;
 }
+.clear_bt {
+  height: 42px;
+  width: 100%;
+  border-radius: 6px;
+  color: #000000;
+  background-color: #e1e0e0;
+  border: none;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+}
 
 .checkout_tile {
   position: relative;

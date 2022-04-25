@@ -20,7 +20,7 @@ export default function Home({ products }) {
             Rafael Mendes - Git
           </h2>
           <p>{"In this skill assessment project you'll be able to:"}</p>
-          <lu>
+          <ul>
             <li>View Mapped items from FakeStore API</li>
             <li>
               Login with Google using <strong>NextAuth</strong>
@@ -39,7 +39,7 @@ export default function Home({ products }) {
               <strong>Firebase/Firestore</strong>
             </li>
             <li>Go to Order page and view previous orders</li>
-          </lu>
+          </ul>
         </div>
       </div>
       <Nav />

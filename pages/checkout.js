@@ -83,7 +83,7 @@ function Checkout() {
                 Sign in to Checkout
               </button>
             )}
-            <button className="signin_bt" onClick={clearBasket}>
+            <button className="clear_bt" onClick={clearBasket}>
               Clear Cart
             </button>
           </div>
